@@ -1,0 +1,242 @@
+:root{
+  /*color*/
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --green-color: #909090;
+  --grey-color: #333333;
+  /*size*/
+  --padding: 12px;
+  --avatar-size: 36px;
+  /*Font size*/
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button,
+button:focus{
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+ul, li{
+  list-style: none;
+}
+
+.search{
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--black-color);
+  padding: var(--padding);
+  color: var(--white-color);
+}
+
+.search_logo{
+  font-size: var(--font-large)
+}
+
+.search .search_logo i{
+  color: var(--red-color);
+}
+
+.search .sarch_img i:nth-child(1){
+  margin-right: var(--padding);
+}
+
+
+.player{
+  position: sticky; /*--> 위에 붙게만든다*/
+  top: 0;  /*-> sticky의 위치를 지정*/
+  text-align: center; /*--> 비디오 가운데 정렬을 위함*/
+  background: var(--black-color);
+}
+/*반응형 동영상*/
+.player video{
+  width: 100%;  /*--> 동영상의 크기를 부모의 100%로 지정*/
+  height: 100%;
+  max-width: 700px; /*--> 최대 커질 수 있는 크기*/
+}
+
+/*동영상 반응형으로 만드는 방법 2
+.player{
+  background-color: black; //-> 뒤의 배경색 설정
+}
+
+.playerSub{
+  display: flex;
+  max-width: 700px; //-> 최대 설정 너비 지정하여 반응형으로 작동
+  margin: 0 auto; //--> 가운데 정렬
+}
+
+.playerSub video{
+  width: 100%;  //--> 부모의 700px를 받음
+}
+*/
+
+.info{
+  padding: var(--padding);
+  padding-bottom: 0;
+}
+
+.info .infor_title_tag{
+  display: flex;
+  color: var(--blue-color);
+  list-style: none;
+  font-size: var(--font-small);
+}
+
+.info .infor_title_tag li{
+  margin-right: var(--padding);
+}
+
+.info_title_main{
+  display: flex;
+}
+
+.info_title_main infoinfo{
+  font-size: var(--font-medium);
+  margin-right: var(--padding);
+}
+
+.infoinfo.clamp{
+  display: -webkit-box;  /*글자를 두줄로 제한/css line clamp*/
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.info_title_main .morebtn{
+  height: 100%; /*버튼을 위로 이동*/
+  transition: all 0.4s
+}
+
+.info_title_main .morebtn.clicked{
+  transform: rotate(180deg);
+}
+
+.info .info_1m{
+  font-size: var(--font-small);
+  color: var(--grey-color)
+}
+.info .info_logo{
+  display: flex;
+  justify-content: space-around;
+  margin-top: var(--padding);
+}
+
+.info_logo button{
+  display:flex;
+  flex-direction: column;
+  font-size: var(--font-medium);
+}
+
+.info_logo button.red i{
+  color: var(--red-color);
+}
+
+.info .info_logo i{
+  margin: 0 auto; /*아이콘과 글자 가운데 정렬*/
+  margin-bottom: calc(var(--padding) / 1.5);
+}
+
+/*user*/
+.user{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: calc(var(--padding) * 2) 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.user .user_info{
+  display: flex;
+  align-items: center;
+  padding: calc(var(--padding)*1) 0;
+}
+
+.user_info>i{
+  font-size: 50px;
+  margin-right: var(--padding);
+}
+
+.user .user_info_name{
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-medium);
+}
+
+.user .user_info_name span:nth-child(2){
+  font-size: var(--font-small);
+  color: var(--grey-color);
+}
+
+.user button{
+  text-transform: uppercase;
+}
+
+/*up next*/
+.clip{
+  padding: 0 var(--padding);
+}
+
+.clip .clip_title{
+  font-size: var(--font-medium);
+  color: var(--grey-color);
+  margin-bottom: calc(var(--padding) / 2);
+}
+.clip .item{
+  display: flex;
+  margin-top: var(--padding);
+}
+
+.clip .item .img{
+  flex: 1 1 35%; /* 1은 크기가 변하는 비율, 35%는 bases 비율*/
+  margin-right: var(--padding);
+}
+/* flex: grow shrink basis*/
+.clip .item .img img{
+  width: 100%;
+}
+
+.clip .item .clip_info_second{
+  flex: 1 1 60%
+}
+
+.clip .item .clip_info_thrid{
+  flex: 1 1 5%
+}
+
+.clip .item button i{
+  margin: 0 calc(var(--padding));
+  height:100%  /*버튼 위로 이동*/
+}
+
+.clip .item .clip_info{
+  display: flex;
+  flex-direction: column;
+}
+
+.inforAndUpNext{
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 700px) {
+  .inforAndUpNext{
+    display: flex;
+    flex-direction: row;
+    margin: var(--padding) 0;
+  }
+}
